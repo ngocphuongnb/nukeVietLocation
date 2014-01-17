@@ -10,7 +10,11 @@ $(document).ready(function () {
         div: '#map',
         lat: {DATA.latitude},
         lng: {DATA.longitude}
-    });  
+    });
+	marker = map.addMarker({
+		lat: {DATA.latitude},
+		lng: {DATA.longitude}
+	});
 
     GMaps.on('marker_added', map, function (marker) {
         $('#latitude').val(marker.getPosition().lat());
@@ -109,25 +113,11 @@ $(document).ready(function () {
 		</tbody>
 	</table>
 </form>
-<script type="text/html" id="edit_marker_template">
-    <h4>Edit Marker</h4>
-    <form class="edit_marker" action="#" method="post" data-marker-index="{{index}}">
-      <p>
-        <label for="marker_{{index}}_lat">Latitude:</label>
-        <input type="text" id="marker_{{index}}_lat" value="{{lat}}" />
-      </p>
-      <p>
-        <label for="marker_{{index}}_lng">Longitude:</label>
-        <input type="text" id="marker_{{index}}_lng" value="{{lng}}" />
-      </p>
-      <input type="submit" value="Update position" />
-    </form>
-  </script>
   
 <style type="text/css">
 #map {
-height: 300px;
-background: #6699cc;
+	height: 300px;
+	background: #6699cc;
 }
 </style>
 
